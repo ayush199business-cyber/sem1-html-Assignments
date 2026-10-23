@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page Hero</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #f8fafc;
+        }
+
+        .hero {
+            position: relative;
+            isolation: isolate;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 60px 8%;
+            background: linear-gradient(135deg, #0f172a, #1d4ed8);
+            overflow: hidden;
+        }
+
+        .decoration {
+            position: absolute;
+            z-index: -1;
+            width: 300px;
+            height: 300px;
+            right: 8%;
+            top: 15%;
+            border-radius: 50%;
+            background: #38bdf8;
+            opacity: 0.25;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 650px;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 6vw, 4.5rem);
+            line-height: 1.1;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 20px;
+            border-radius: 6px;
+            color: #0f172a;
+            background: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="decoration" aria-hidden="true"></div>
+
+        <div class="hero-content">
+            <h1>Build Your Future with Web Development</h1>
+            <p>
+                I am Ayush Sharma, a BCAI student learning HTML, CSS,
+                and the fundamentals of modern web development.
+            </p>
+            <a class="button"
+               href="https://github.com/ayush199business-cy">
+                Explore My GitHub
+            </a>
+        </div>
+    </section>
+</body>
+</html>

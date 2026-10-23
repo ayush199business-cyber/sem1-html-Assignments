@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Card Variants</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #243047;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .card {
+            padding: 24px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+        }
+
+        .card-one {
+            background: white;
+            border: 2px solid #2563eb;
+            border-radius: 6px;
+        }
+
+        .card-two {
+            background: #dcfce7;
+            border: 1px solid #15803d;
+            border-radius: 20px;
+        }
+
+        .card-three {
+            background: #1e293b;
+            color: white;
+            border-radius: 30px 5px 30px 5px;
+        }
+
+        .card a {
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <h1>Card Design Variants</h1>
+
+    <main class="cards">
+        <article class="card card-one">
+            <h2>Basic Card</h2>
+            <p>A simple card with a blue border and small radius.</p>
+            <a href="https://github.com/ayush199business-cy">GitHub</a>
+        </article>
+
+        <article class="card card-two">
+            <h2>Nature Card</h2>
+            <p>A green background with rounded corners.</p>
+            <a href="https://leetcode.com/u/Ayush55199/">LeetCode</a>
+        </article>
+
+        <article class="card card-three">
+            <h2>Dark Card</h2>
+            <p>A dark background with asymmetrical corners.</p>
+            <a href="https://www.geeksforgeeks.org/profile/ayush199b0udv">GeeksforGeeks</a>
+        </article>
+    </main>
+</body>
+</html>

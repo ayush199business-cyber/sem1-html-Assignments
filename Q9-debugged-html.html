@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q9 - Debug and Correct HTML</title>
+</head>
+<body>
+
+    <h1>Q9. Debug and Correct a Buggy HTML File</h1>
+    <p>This page demonstrates common HTML errors and their corrections.</p>
+
+    <hr>
+
+    <h2>1. Buggy HTML Code</h2>
+
+    <pre><code>
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My Web Page
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My Website
+    &lt;p&gt;This is my first paragraph.
+    &lt;img src="photo.jpg"&gt;
+    &lt;a href="https://example.com"&gt;Visit Website
+    &lt;ul&gt;
+        &lt;li&gt;HTML
+        &lt;li&gt;CSS
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </code></pre>
+
+    <p><strong>Errors found:</strong></p>
+    <ul>
+        <li>Missing closing tags for the title, heading, paragraph, and link.</li>
+        <li>Missing meaningful alt text for the image.</li>
+        <li>List items are not properly closed.</li>
+        <li>The unordered list is incorrectly closed with an ordered-list tag.</li>
+        <li>Missing document language and character encoding declarations.</li>
+    </ul>
+
+    <hr>
+
+    <h2>2. Corrected HTML Code</h2>
+
+    <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My Web Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+    &lt;p&gt;This is my first paragraph.&lt;/p&gt;
+    &lt;img src="photo.jpg" alt="A sample photograph"&gt;
+    &lt;a href="https://example.com"&gt;Visit Website&lt;/a&gt;
+    &lt;ul&gt;
+        &lt;li&gt;HTML&lt;/li&gt;
+        &lt;li&gt;CSS&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </code></pre>
+
+    <h2>3. Result</h2>
+    <p>The corrected code has properly structured HTML elements, valid list markup, and an image with alternative text.</p>
+
+</body>
+</html>
