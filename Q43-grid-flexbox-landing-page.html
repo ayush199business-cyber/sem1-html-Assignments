@@ -1,0 +1,566 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A modern responsive landing page built with CSS Grid and Flexbox.">
+    <title>Q43 - Nova Creative Landing Page</title>
+
+    <style>
+        :root {
+            --primary: #6d5dfc;
+            --primary-dark: #5545e8;
+            --ink: #19182b;
+            --muted: #6e7085;
+            --background: #f8f8fc;
+            --surface: #ffffff;
+            --border: #e9e8f3;
+            --radius: 22px;
+            --shadow: 0 20px 55px rgba(39, 32, 94, 0.10);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, "Segoe UI", Arial, sans-serif;
+            color: var(--ink);
+            background: var(--background);
+            line-height: 1.65;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1160px, calc(100% - 48px));
+            margin-inline: auto;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.94);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+        }
+
+        .navbar {
+            min-height: 78px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .brand {
+            font-size: 1.45rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .brand span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 48px;
+            padding: 12px 21px;
+            border: 1px solid transparent;
+            border-radius: 12px;
+            font-weight: 750;
+            text-align: center;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            color: #ffffff;
+            background: var(--primary);
+        }
+
+        .button-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .button-outline {
+            color: var(--ink);
+            border-color: var(--border);
+            background: var(--surface);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+            align-items: center;
+            gap: 64px;
+            padding-block: 86px 76px;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 13px;
+            border: 1px solid #e3defe;
+            border-radius: 30px;
+            color: var(--primary-dark);
+            background: #f0edff;
+            font-size: 0.84rem;
+            font-weight: 750;
+        }
+
+        .hero h1 {
+            margin: 22px 0 18px;
+            font-size: clamp(2.6rem, 5.5vw, 4.7rem);
+            letter-spacing: -3px;
+            line-height: 1.06;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero-copy {
+            max-width: 540px;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .trust-note {
+            margin-top: 26px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .hero-visual {
+            position: relative;
+            min-width: 0;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            aspect-ratio: 5 / 4;
+            object-fit: cover;
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .floating-card {
+            position: absolute;
+            right: -18px;
+            bottom: 24px;
+            max-width: 230px;
+            padding: 17px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .floating-card strong {
+            display: block;
+            font-size: 1.05rem;
+        }
+
+        .floating-card span {
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+        .features {
+            padding-block: 70px 82px;
+            background: var(--surface);
+            border-block: 1px solid var(--border);
+        }
+
+        .section-heading {
+            max-width: 680px;
+            margin: 0 auto 38px;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            margin: 12px 0;
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .feature-card {
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--surface);
+        }
+
+        .feature-icon {
+            display: grid;
+            place-items: center;
+            width: 52px;
+            height: 52px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            background: #efedff;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .feature-card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .cta {
+            padding-block: 76px;
+        }
+
+        .cta-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            padding: 42px;
+            border-radius: 26px;
+            color: white;
+            background: #211c48;
+        }
+
+        .cta-panel h2 {
+            margin: 0 0 8px;
+            font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+            line-height: 1.2;
+        }
+
+        .cta-panel p {
+            margin: 0;
+            color: #d4d0f0;
+        }
+
+        .cta-panel .button {
+            flex-shrink: 0;
+            color: var(--ink);
+            background: white;
+        }
+
+        .site-footer {
+            padding-block: 28px;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-inner p {
+            margin: 0;
+        }
+
+        /* Tablet breakpoint */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr 0.85fr;
+                gap: 32px;
+                padding-block: 64px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .floating-card {
+                right: -8px;
+            }
+
+            .cta-panel {
+                padding: 32px;
+            }
+        }
+
+        /* Mobile breakpoint */
+        @media (max-width: 640px) {
+            .container {
+                width: calc(100% - 32px);
+            }
+
+            .navbar {
+                padding-block: 16px;
+                flex-direction: column;
+                gap: 14px;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px 18px;
+            }
+
+            .nav-links a {
+                font-size: 0.88rem;
+            }
+
+            .hero {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 36px;
+                padding-block: 48px;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.45rem, 11vw, 3.5rem);
+                letter-spacing: -1.5px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .hero-actions .button {
+                width: 100%;
+            }
+
+            .hero-visual {
+                padding-right: 8px;
+            }
+
+            .hero-visual img {
+                aspect-ratio: 4 / 3;
+            }
+
+            .floating-card {
+                right: 0;
+                bottom: 12px;
+                max-width: 190px;
+                padding: 12px;
+            }
+
+            .features {
+                padding-block: 50px;
+            }
+
+            .feature-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .feature-card {
+                padding: 22px;
+            }
+
+            .cta {
+                padding-block: 48px;
+            }
+
+            .cta-panel {
+                align-items: stretch;
+                flex-direction: column;
+                padding: 26px;
+            }
+
+            .cta-panel .button {
+                width: 100%;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar container" aria-label="Main navigation">
+            <a class="brand" href="#home">nova<span>.</span></a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+
+            <a class="button button-primary" href="#get-started">Get Started</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container" id="home">
+            <div class="hero-content">
+                <span class="pill">✦ Modern Web Experience</span>
+
+                <h1>Make your next idea <span>stand out.</span></h1>
+
+                <p class="hero-copy">
+                    Create a stronger online presence with a clean, responsive
+                    landing page built for clarity, usability, and a polished
+                    first impression.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#get-started">
+                        Explore the Design
+                    </a>
+                    <a class="button button-outline" href="#features">
+                        Discover Features
+                    </a>
+                </div>
+
+                <p class="trust-note">
+                    Designed with responsive CSS Grid and Flexbox.
+                </p>
+            </div>
+
+            <div class="hero-visual">
+                <img
+                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85"
+                    alt="Bright modern workspace with desks and computers">
+                <div class="floating-card">
+                    <strong>Designed to adapt</strong>
+                    <span>One layout for desktop, tablet, and mobile.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="pill">Why Nova?</span>
+                    <h2>Everything in the right place.</h2>
+                    <p>
+                        A simple design system that combines readable content,
+                        consistent spacing, and flexible layouts.
+                    </p>
+                </div>
+
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">✦</div>
+                        <h3>Clean Design</h3>
+                        <p>A focused visual hierarchy helps visitors understand your message quickly.</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">▦</div>
+                        <h3>Responsive Layout</h3>
+                        <p>Grid and media queries rearrange content for smaller screens.</p>
+                    </article>
+
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">↗</div>
+                        <h3>Clear Actions</h3>
+                        <p>Consistent buttons and section links make navigation straightforward.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta container" id="about">
+            <div class="cta-panel" id="get-started">
+                <div>
+                    <h2>Ready to build something better?</h2>
+                    <p>Use this landing page as the foundation for your own project.</p>
+                </div>
+                <a class="button" href="https://github.com/ayush199business-cy"
+                   target="_blank" rel="noopener noreferrer">
+                    Visit GitHub
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner container">
+            <p>Nova — Responsive Landing Page</p>
+            <p>Created for HTML &amp; CSS coursework · 2026</p>
+        </div>
+    </footer>
+</body>
+</html>
