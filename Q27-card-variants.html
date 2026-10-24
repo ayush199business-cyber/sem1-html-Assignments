@@ -1,79 +1,150 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three Card Variants</title>
+    <meta name="description" content="Three CSS card variants using backgrounds and border radius.">
+    <title>CSS Card Variants</title>
+
     <style>
-        body {
-            margin: 0;
-            padding: 30px;
-            font-family: Arial, sans-serif;
-            background: #f1f5f9;
-            color: #243047;
+        * {
+            box-sizing: border-box;
         }
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            max-width: 1000px;
+        body {
+            margin: 0;
+            padding: 35px 16px;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #1e293b;
+        }
+
+        main {
+            max-width: 1100px;
             margin: auto;
         }
 
+        h1 {
+            text-align: center;
+            color: #173b57;
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #64748b;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 22px;
+        }
+
         .card {
-            padding: 24px;
+            padding: 25px;
+            min-width: 0;
         }
 
         .card h2 {
             margin-top: 0;
         }
 
-        .card-one {
-            background: white;
-            border: 2px solid #2563eb;
+        .card p {
+            line-height: 1.7;
+        }
+
+        .card button {
+            padding: 10px 15px;
+            border: 0;
             border-radius: 6px;
+            cursor: pointer;
+            font: inherit;
         }
 
-        .card-two {
-            background: #dcfce7;
-            border: 1px solid #15803d;
-            border-radius: 20px;
+        /* Variant 1: Simple outlined card */
+        .card-basic {
+            background: white;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
         }
 
-        .card-three {
-            background: #1e293b;
+        .card-basic button {
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+
+        /* Variant 2: Rounded card with shadow */
+        .card-rounded {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
+        }
+
+        .card-rounded button {
+            background: #2563eb;
             color: white;
-            border-radius: 30px 5px 30px 5px;
         }
 
-        .card a {
-            color: inherit;
+        /* Variant 3: Dark card with accent border */
+        .card-dark {
+            background: #173b57;
+            color: white;
+            border-radius: 14px 14px 14px 4px;
+            border-left: 6px solid #2dd4bf;
+        }
+
+        .card-dark p {
+            color: #dbeafe;
+        }
+
+        .card-dark button {
+            background: #2dd4bf;
+            color: #123047;
+        }
+
+        button:hover {
+            opacity: 0.85;
         }
     </style>
 </head>
 <body>
-    <h1>Card Design Variants</h1>
+    <main>
+        <h1>Three CSS Card Variants</h1>
+        <p class="intro">
+            Different backgrounds, borders, and border-radius values
+            create different component styles.
+        </p>
 
-    <main class="cards">
-        <article class="card card-one">
-            <h2>Basic Card</h2>
-            <p>A simple card with a blue border and small radius.</p>
-            <a href="https://github.com/ayush199business-cy">GitHub</a>
-        </article>
+        <section class="card-container">
+            <article class="card card-basic">
+                <h2>Basic Card</h2>
+                <p>
+                    A simple card with a visible border, a white background,
+                    and slightly rounded corners.
+                </p>
+                <button type="button">Basic Style</button>
+            </article>
 
-        <article class="card card-two">
-            <h2>Nature Card</h2>
-            <p>A green background with rounded corners.</p>
-            <a href="https://leetcode.com/u/Ayush55199/">LeetCode</a>
-        </article>
+            <article class="card card-rounded">
+                <h2>Rounded Card</h2>
+                <p>
+                    A spacious card with large rounded corners and a subtle
+                    shadow to create depth.
+                </p>
+                <button type="button">Rounded Style</button>
+            </article>
 
-        <article class="card card-three">
-            <h2>Dark Card</h2>
-            <p>A dark background with asymmetrical corners.</p>
-            <a href="https://www.geeksforgeeks.org/profile/ayush199b0udv">GeeksforGeeks</a>
-        </article>
+            <article class="card card-dark">
+                <h2>Dark Card</h2>
+                <p>
+                    A dark background and contrasting accent border create
+                    a bold visual appearance.
+                </p>
+                <button type="button">Dark Style</button>
+            </article>
+        </section>
     </main>
 </body>
 </html>

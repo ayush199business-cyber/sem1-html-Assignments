@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An automatically reflowing responsive product grid using CSS Grid.">
+    <title>Responsive Product Grid</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #173b57;
+            --accent: #0d9488;
+            --background: #f3f6fa;
+            --surface: #ffffff;
+            --text: #243447;
+            --muted: #64748b;
+            --border: #dbe3ec;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+        }
+
+        .header {
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+            background: var(--primary);
+        }
+
+        .header h1 {
+            margin: 0 0 8px;
+        }
+
+        .header p {
+            margin: 0;
+            color: #dbeafe;
+        }
+
+        .container {
+            width: min(100% - 32px, 1200px);
+            margin: 35px auto;
+        }
+
+        .section-heading {
+            margin-bottom: 24px;
+        }
+
+        .section-heading h2 {
+            margin-bottom: 5px;
+        }
+
+        .section-heading p {
+            margin-top: 0;
+            color: var(--muted);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(min(100%, 230px), 1fr)
+            );
+            gap: 22px;
+        }
+
+        .product-card {
+            min-width: 0;
+            overflow: hidden;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+        }
+
+        .product-card img {
+            display: block;
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            background: #e2e8f0;
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 18px;
+        }
+
+        .product-info h3 {
+            margin: 0 0 8px;
+        }
+
+        .description {
+            margin: 0 0 14px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .price {
+            margin: auto 0 15px;
+            color: var(--primary);
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            padding: 11px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            background: var(--accent);
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #0f766e;
+        }
+
+        footer {
+            padding: 22px;
+            text-align: center;
+            color: var(--muted);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .product-card {
+                transition: none;
+            }
+
+            .product-card:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Tech Store</h1>
+        <p>Explore our featured products.</p>
+    </header>
+
+    <main class="container">
+        <section>
+            <div class="section-heading">
+                <h2>Featured Products</h2>
+                <p>
+                    The number of columns changes automatically with the
+                    available screen width.
+                </p>
+            </div>
+
+            <div class="product-grid">
+                <article class="product-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&amp;fit=crop&amp;w=700&amp;q=80"
+                        alt="Laptop computer on a desk"
+                        loading="lazy">
+                    <div class="product-info">
+                        <h3>Laptop Computer</h3>
+                        <p class="description">
+                            A sample laptop for study and productivity.
+                        </p>
+                        <p class="price">₹49,999</p>
+                        <a class="button" href="#laptop">View Product</a>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&amp;fit=crop&amp;w=700&amp;q=80"
+                        alt="Over-ear headphones"
+                        loading="lazy">
+                    <div class="product-info">
+                        <h3>Headphones</h3>
+                        <p class="description">
+                            A sample accessory for music and calls.
+                        </p>
+                        <p class="price">₹2,499</p>
+                        <a class="button" href="#headphones">View Product</a>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&amp;fit=crop&amp;w=700&amp;q=80"
+                        alt="Wristwatch displayed on a light surface"
+                        loading="lazy">
+                    <div class="product-info">
+                        <h3>Wristwatch</h3>
+                        <p class="description">
+                            A sample watch with a classic appearance.
+                        </p>
+                        <p class="price">₹1,999</p>
+                        <a class="button" href="#watch">View Product</a>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&amp;fit=crop&amp;w=700&amp;q=80"
+                        alt="Red athletic shoe"
+                        loading="lazy">
+                    <div class="product-info">
+                        <h3>Sports Shoes</h3>
+                        <p class="description">
+                            Sample athletic footwear for everyday use.
+                        </p>
+                        <p class="price">₹2,999</p>
+                        <a class="button" href="#shoes">View Product</a>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&amp;fit=crop&amp;w=700&amp;q=80"
+                        alt="Camera for photography"
+                        loading="lazy">
+                    <div class="product-info">
+                        <h3>Digital Camera</h3>
+                        <p class="description">
+                            A sample camera for photography enthusiasts.
+                        </p>
+                        <p class="price">₹24,999</p>
+                        <a class="button" href="#camera">View Product</a>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <img
+                        src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&amp;fit=crop&amp;w=700&amp;q=80"
+                        alt="Smartwatch with a digital display"
+                        loading="lazy">
+                    <div class="product-info">
+                        <h3>Smartwatch</h3>
+                        <p class="description">
+                            A sample wearable technology product.
+                        </p>
+                        <p class="price">₹3,499</p>
+                        <a class="button" href="#smartwatch">View Product</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section aria-label="Product demonstration details">
+            <h2>Product Listing Demo</h2>
+            <p id="laptop">Laptop product target.</p>
+            <p id="headphones">Headphones product target.</p>
+            <p id="watch">Wristwatch product target.</p>
+            <p id="shoes">Sports shoes product target.</p>
+            <p id="camera">Camera product target.</p>
+            <p id="smartwatch">Smartwatch product target.</p>
+            <p>
+                Prices are illustrative. This page does not process orders
+                or payments.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Tech Store | CSS Grid Assignment</p>
+    </footer>
+</body>
+</html>

@@ -1,74 +1,210 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q9 - Debug and Correct HTML</title>
+    <title>HTML Debugging and Correction</title>
 </head>
 <body>
 
-    <h1>Q9. Debug and Correct a Buggy HTML File</h1>
-    <p>This page demonstrates common HTML errors and their corrections.</p>
+    <h1>HTML Debugging and Correction</h1>
+
+    <p>
+        This assignment demonstrates common HTML errors, their
+        corrected versions, and the reasons for making each correction.
+    </p>
 
     <hr>
 
-    <h2>1. Buggy HTML Code</h2>
+    <section>
+        <h2>Part 1: Buggy HTML Code</h2>
 
-    <pre><code>
+        <p>
+            The following example intentionally contains missing tags,
+            incorrect structure, and accessibility problems.
+        </p>
+
+        <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
-    &lt;title&gt;My Web Page
+    &lt;title&gt;My Student Webpage
 &lt;/head&gt;
 &lt;body&gt;
-    &lt;h1&gt;Welcome to My Website
-    &lt;p&gt;This is my first paragraph.
-    &lt;img src="photo.jpg"&gt;
-    &lt;a href="https://example.com"&gt;Visit Website
+
+    &lt;h1&gt;Welcome to My Webpage
+    &lt;p&gt;My name is Ayush Sharma.
+    &lt;p&gt;I am a BCAI student at Invertis University.
+
+    &lt;h2&gt;My Skills
     &lt;ul&gt;
         &lt;li&gt;HTML
-        &lt;li&gt;CSS
-    &lt;/ol&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-    </code></pre>
+        &lt;li&gt;Programming
+        &lt;li&gt;Problem Solving
+    &lt;/ul&gt;
 
-    <p><strong>Errors found:</strong></p>
-    <ul>
-        <li>Missing closing tags for the title, heading, paragraph, and link.</li>
-        <li>Missing meaningful alt text for the image.</li>
-        <li>List items are not properly closed.</li>
-        <li>The unordered list is incorrectly closed with an ordered-list tag.</li>
-        <li>Missing document language and character encoding declarations.</li>
-    </ul>
+    &lt;img src="profile.jpg"&gt;
+
+    &lt;a href="https://github.com/ayush199business-cy"&gt;
+        Visit My GitHub Profile
+
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Subject
+            &lt;th&gt;Status
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;HTML
+            &lt;td&gt;Learning
+        &lt;/tr&gt;
+    &lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
 
     <hr>
 
-    <h2>2. Corrected HTML Code</h2>
+    <section>
+        <h2>Part 2: Corrected HTML Code</h2>
 
-    <pre><code>
-&lt;!DOCTYPE html&gt;
+        <p>
+            The following version corrects the markup and improves
+            accessibility and document structure.
+        </p>
+
+        <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;
     &lt;meta charset="UTF-8"&gt;
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;My Web Page&lt;/title&gt;
+    &lt;title&gt;My Student Webpage&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-    &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
-    &lt;p&gt;This is my first paragraph.&lt;/p&gt;
-    &lt;img src="photo.jpg" alt="A sample photograph"&gt;
-    &lt;a href="https://example.com"&gt;Visit Website&lt;/a&gt;
+
+    &lt;h1&gt;Welcome to My Webpage&lt;/h1&gt;
+
+    &lt;p&gt;My name is Ayush Sharma.&lt;/p&gt;
+
+    &lt;p&gt;I am a BCAI student at Invertis University.&lt;/p&gt;
+
+    &lt;h2&gt;My Skills&lt;/h2&gt;
+
     &lt;ul&gt;
         &lt;li&gt;HTML&lt;/li&gt;
-        &lt;li&gt;CSS&lt;/li&gt;
+        &lt;li&gt;Programming&lt;/li&gt;
+        &lt;li&gt;Problem Solving&lt;/li&gt;
     &lt;/ul&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-    </code></pre>
 
-    <h2>3. Result</h2>
-    <p>The corrected code has properly structured HTML elements, valid list markup, and an image with alternative text.</p>
+    &lt;img src="profile.jpg" alt="Student profile photograph"&gt;
+
+    &lt;p&gt;
+        &lt;a href="https://github.com/ayush199business-cy"&gt;
+            Visit My GitHub Profile
+        &lt;/a&gt;
+    &lt;/p&gt;
+
+    &lt;table&gt;
+        &lt;caption&gt;Learning Progress&lt;/caption&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th scope="col"&gt;Subject&lt;/th&gt;
+                &lt;th scope="col"&gt;Status&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;HTML&lt;/td&gt;
+                &lt;td&gt;Learning&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Part 3: Corrections Made</h2>
+
+        <ol>
+            <li>
+                <strong>Added the language attribute:</strong>
+                Added lang="en" to identify the document language.
+            </li>
+
+            <li>
+                <strong>Added character encoding:</strong>
+                Included UTF-8 metadata to support standard text characters.
+            </li>
+
+            <li>
+                <strong>Added viewport metadata:</strong>
+                Included the viewport setting for appropriate display
+                on mobile devices.
+            </li>
+
+            <li>
+                <strong>Closed the title element:</strong>
+                Added the missing closing title tag in the head section.
+            </li>
+
+            <li>
+                <strong>Closed heading elements:</strong>
+                Added closing tags for h1 and h2.
+            </li>
+
+            <li>
+                <strong>Closed paragraph elements:</strong>
+                Corrected the incomplete paragraph markup.
+            </li>
+
+            <li>
+                <strong>Closed list items:</strong>
+                Added closing li tags to each list item.
+            </li>
+
+            <li>
+                <strong>Added image alternative text:</strong>
+                Included an alt attribute to describe the image to
+                users who cannot see it.
+            </li>
+
+            <li>
+                <strong>Closed the hyperlink:</strong>
+                Added the missing closing anchor tag.
+            </li>
+
+            <li>
+                <strong>Corrected the table:</strong>
+                Closed table headers and data cells and organized
+                the table using thead and tbody.
+            </li>
+
+            <li>
+                <strong>Added table accessibility:</strong>
+                Included a caption and scope attributes for column headers.
+            </li>
+        </ol>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Part 4: Conclusion</h2>
+
+        <p>
+            Debugging HTML helps identify and correct markup errors.
+            Properly structured HTML improves readability, accessibility,
+            maintainability, and browser consistency.
+        </p>
+
+        <p>
+            Note: The file profile.jpg must exist in the same folder
+            as the HTML document for the sample image to appear.
+        </p>
+    </section>
 
 </body>
 </html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Ayush Sharma, a BCAI student.">
+    <title>About | Ayush Sharma Portfolio</title>
+    <style>
+        :root {
+            --primary: #173b57;
+            --accent: #0d9488;
+            --background: #f3f6fa;
+            --surface: #ffffff;
+            --text: #243447;
+            --muted: #64748b;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; font-family: Arial, sans-serif;
+            line-height: 1.7; color: var(--text); background: var(--background);
+        }
+        .container { width: min(100% - 32px, 1000px); margin: auto; }
+        header { background: var(--primary); color: white; }
+        .nav {
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 16px; padding: 18px 0;
+        }
+        .brand { font-size: 1.2rem; font-weight: bold; }
+        nav { display: flex; flex-wrap: wrap; gap: 18px; }
+        nav a { color: white; text-decoration: none; }
+        nav a:hover { text-decoration: underline; }
+        main { padding: 35px 0; }
+        .panel {
+            background: var(--surface); padding: 28px;
+            border-radius: 12px; border: 1px solid #dbe3ec; margin-bottom: 22px;
+        }
+        h1, h2 { color: var(--primary); }
+        .panel a { color: #087e8b; overflow-wrap: anywhere; }
+        footer { text-align: center; padding: 22px; color: var(--muted); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand">Ayush Sharma</div>
+            <nav aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html" aria-current="page">About</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="panel">
+            <h1>About Me</h1>
+            <p>
+                My name is Ayush Sharma. I am studying BCAI at Invertis
+                University and am currently in the first year, first semester
+                of my three-year course.
+            </p>
+            <p>
+                I am developing my skills in HTML, CSS, programming,
+                and problem-solving through academic assignments and practice.
+            </p>
+        </article>
+
+        <section class="panel">
+            <h2>My Learning Goals</h2>
+            <ul>
+                <li>Build well-structured, accessible webpages.</li>
+                <li>Learn responsive design and CSS layout techniques.</li>
+                <li>Practise programming and problem-solving.</li>
+                <li>Publish projects using GitHub.</li>
+            </ul>
+        </section>
+
+        <section class="panel">
+            <h2>My Coding Profiles</h2>
+            <ul>
+                <li><a href="https://github.com/ayush199business-cy"
+                       target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                <li><a href="https://leetcode.com/u/Ayush55199/"
+                       target="_blank" rel="noopener noreferrer">LeetCode</a></li>
+                <li><a href="https://www.geeksforgeeks.org/profile/ayush199b0udv"
+                       target="_blank" rel="noopener noreferrer">GeeksforGeeks</a></li>
+                <li><a href="https://www.linkedin.com/in/ayush-sharma-969904392"
+                       target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ayush Sharma | Student Portfolio</p>
+    </footer>
+</body>
+</html>

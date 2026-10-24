@@ -1,0 +1,606 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A complete responsive student portfolio demonstrating CSS Grid layouts, project cards, and a photo gallery.">
+    <title>Ayush Sharma | Grid-Based Portfolio</title>
+
+    <style>
+        :root {
+            --primary: #16324f;
+            --accent: #0d9488;
+            --background: #f1f5f9;
+            --surface: #ffffff;
+            --text: #243447;
+            --muted: #64748b;
+            --border: #dbe3ec;
+            --radius: 12px;
+            --shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--background);
+        }
+
+        a {
+            overflow-wrap: anywhere;
+        }
+
+        /* Main page structure */
+        .site-layout {
+            display: grid;
+            min-height: 100vh;
+            grid-template-columns: 245px minmax(0, 1fr);
+            grid-template-rows: auto minmax(0, 1fr) auto;
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+        }
+
+        .site-header {
+            grid-area: header;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            padding: 18px 5%;
+            color: white;
+            background: var(--primary);
+        }
+
+        .brand {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .top-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .top-nav a:hover,
+        .top-nav a:focus-visible {
+            text-decoration: underline;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            grid-area: sidebar;
+            padding: 25px 18px;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .sidebar nav {
+            display: grid;
+            gap: 8px;
+        }
+
+        .sidebar nav a {
+            padding: 10px 12px;
+            color: var(--text);
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .sidebar nav a:hover,
+        .sidebar nav a:focus-visible {
+            color: white;
+            background: var(--accent);
+        }
+
+        .sidebar-note {
+            margin-top: 25px;
+            padding: 14px;
+            background: #e6f4f5;
+            border-radius: 8px;
+            color: #115e59;
+            font-size: 0.9rem;
+        }
+
+        /* Main content */
+        .main-content {
+            grid-area: main;
+            min-width: 0;
+            padding: 30px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
+            align-items: center;
+            gap: 28px;
+            margin-bottom: 35px;
+            padding: 30px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 8px 0 14px;
+            color: var(--primary);
+            font-size: clamp(2rem, 4vw, 3.3rem);
+            line-height: 1.15;
+        }
+
+        .hero p {
+            color: var(--muted);
+        }
+
+        .hero-image {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 11px 16px;
+            color: white;
+            background: var(--accent);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #0f766e;
+        }
+
+        /* Project cards */
+        .section {
+            margin-bottom: 38px;
+        }
+
+        .section-heading {
+            margin-bottom: 18px;
+        }
+
+        .section-heading h2 {
+            margin: 0 0 5px;
+            color: var(--primary);
+        }
+
+        .section-heading p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(min(100%, 230px), 1fr)
+            );
+            gap: 20px;
+        }
+
+        .project-card {
+            min-width: 0;
+            padding: 22px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .project-card p {
+            color: var(--muted);
+        }
+
+        .project-card a {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .gallery figure {
+            min-width: 0;
+            margin: 0;
+            overflow: hidden;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .gallery img {
+            display: block;
+            width: 100%;
+            height: 165px;
+            object-fit: cover;
+        }
+
+        .gallery figcaption {
+            padding: 11px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* Contact area */
+        .contact-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 25px;
+            color: white;
+            background: var(--primary);
+            border-radius: var(--radius);
+        }
+
+        .contact-panel h2 {
+            margin-top: 0;
+        }
+
+        .contact-panel p {
+            margin-bottom: 0;
+            color: #dbeafe;
+        }
+
+        .contact-panel .button {
+            color: var(--primary);
+            background: white;
+        }
+
+        .site-footer {
+            grid-area: footer;
+            padding: 20px;
+            text-align: center;
+            color: var(--muted);
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+        }
+
+        .site-footer p {
+            margin: 0;
+        }
+
+        /* Tablet */
+        @media (max-width: 900px) {
+            .site-layout {
+                grid-template-columns: 200px minmax(0, 1fr);
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .hero {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .hero-image {
+                max-height: 320px;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 620px) {
+            .site-layout {
+                grid-template-columns: minmax(0, 1fr);
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "main"
+                    "footer";
+            }
+
+            .site-header {
+                justify-content: center;
+                padding: 18px;
+            }
+
+            .top-nav {
+                justify-content: center;
+            }
+
+            .sidebar {
+                padding: 12px 16px;
+                border-right: 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .sidebar h2 {
+                margin-bottom: 10px;
+            }
+
+            .sidebar nav {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+
+            .sidebar nav a {
+                padding: 7px 10px;
+                background: var(--background);
+            }
+
+            .sidebar-note {
+                margin-top: 12px;
+            }
+
+            .main-content {
+                padding: 16px;
+            }
+
+            .hero {
+                padding: 20px;
+            }
+
+            .gallery {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .gallery img {
+                height: 220px;
+            }
+
+            .contact-panel {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="site-layout">
+        <header class="site-header">
+            <a class="brand" href="#home">Ayush Sharma</a>
+
+            <nav class="top-nav" aria-label="Main navigation">
+                <a href="#home">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <aside class="sidebar">
+            <h2>Portfolio Menu</h2>
+
+            <nav aria-label="Portfolio sections">
+                <a href="#home">Introduction</a>
+                <a href="#projects">My Projects</a>
+                <a href="#skills">Technical Skills</a>
+                <a href="#gallery">Photo Gallery</a>
+                <a href="#contact">Connect With Me</a>
+            </nav>
+
+            <div class="sidebar-note">
+                <strong>Current Focus</strong>
+                <p>
+                    Learning CSS Grid, responsive design, and reusable
+                    webpage components.
+                </p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section class="hero" id="home">
+                <div>
+                    <p class="eyebrow">BCAI Student Portfolio</p>
+                    <h1>Learning, Creating, and Improving</h1>
+
+                    <p>
+                        My name is Ayush Sharma. I am a first-year BCAI
+                        student at Invertis University. This portfolio
+                        demonstrates my practice with HTML, CSS, and
+                        responsive web layouts.
+                    </p>
+
+                    <a
+                        class="button"
+                        href="https://github.com/ayush199business-cyber"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Explore My GitHub
+                    </a>
+                </div>
+
+                <img
+                    class="hero-image"
+                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&amp;fit=crop&amp;w=1000&amp;q=80"
+                    alt="Laptop and computer equipment on a developer's desk"
+                    fetchpriority="high">
+            </section>
+
+            <section class="section" id="projects">
+                <div class="section-heading">
+                    <h2>My Projects</h2>
+                    <p>Examples of skills practised in my assignments.</p>
+                </div>
+
+                <div class="project-grid">
+                    <article class="project-card">
+                        <h3>Photo Gallery</h3>
+                        <p>
+                            A responsive photo gallery using CSS Grid,
+                            image captions, and adaptive columns.
+                        </p>
+                        <a href="#gallery">View Gallery Section</a>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>Product Grid</h3>
+                        <p>
+                            A product listing that automatically adjusts
+                            to the width of the screen.
+                        </p>
+                        <a href="#skills">View Skills</a>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>Dashboard Layout</h3>
+                        <p>
+                            A dashboard layout using named grid areas,
+                            a sidebar, and statistics cards.
+                        </p>
+                        <a
+                            href="https://github.com/ayush199business-cyber"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            GitHub Profile
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" id="skills">
+                <div class="section-heading">
+                    <h2>Technical Skills</h2>
+                    <p>Technologies and concepts I am practising.</p>
+                </div>
+
+                <div class="project-grid">
+                    <article class="project-card">
+                        <h3>HTML</h3>
+                        <p>
+                            Semantic elements, headings, links, images,
+                            tables, and forms.
+                        </p>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>CSS</h3>
+                        <p>
+                            Selectors, color palettes, spacing,
+                            the box model, and positioning.
+                        </p>
+                    </article>
+
+                    <article class="project-card">
+                        <h3>CSS Grid</h3>
+                        <p>
+                            Responsive columns, named areas, galleries,
+                            and dashboard layouts.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" id="gallery">
+                <div class="section-heading">
+                    <h2>Photo Gallery</h2>
+                    <p>Example images arranged using a responsive Grid.</p>
+                </div>
+
+                <div class="gallery">
+                    <figure>
+                        <img
+                            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                            alt="Mountain landscape under an open sky"
+                            loading="lazy">
+                        <figcaption>Mountain Landscape</figcaption>
+                    </figure>
+
+                    <figure>
+                        <img
+                            src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                            alt="Sunlight passing through a green forest"
+                            loading="lazy">
+                        <figcaption>Forest</figcaption>
+                    </figure>
+
+                    <figure>
+                        <img
+                            src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&amp;fit=crop&amp;w=600&amp;q=80"
+                            alt="A lake surrounded by mountains"
+                            loading="lazy">
+                        <figcaption>Lake View</figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="section" id="contact">
+                <div class="contact-panel">
+                    <div>
+                        <h2>Connect With Me</h2>
+                        <p>
+                            Visit my profiles to explore my coding practice
+                            and development progress.
+                        </p>
+                    </div>
+
+                    <a
+                        class="button"
+                        href="https://www.linkedin.com/in/ayush-sharma-969904392"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Visit LinkedIn
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p>
+                &copy; 2026 Ayush Sharma | Grid-Based Portfolio Project
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

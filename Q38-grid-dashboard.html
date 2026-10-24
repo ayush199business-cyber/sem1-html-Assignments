@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A responsive dashboard layout using CSS Grid named areas.">
+    <title>Student Dashboard | CSS Grid Areas</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #173b57;
+            --teal: #0d9488;
+            --background: #f1f5f9;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --muted: #64748b;
+            --border: #dbe3ec;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+        }
+
+        .dashboard {
+            display: grid;
+            min-height: 100vh;
+            grid-template-columns: 240px minmax(0, 1fr);
+            grid-template-rows: auto minmax(0, 1fr) auto;
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+        }
+
+        .dashboard-header {
+            grid-area: header;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 18px 28px;
+            color: white;
+            background: var(--navy);
+        }
+
+        .dashboard-header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .dashboard-header p {
+            margin: 0;
+            color: #dbeafe;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            padding: 25px 18px;
+            background: #ffffff;
+            border-right: 1px solid var(--border);
+        }
+
+        .sidebar h2 {
+            font-size: 1rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sidebar nav {
+            display: grid;
+            gap: 8px;
+        }
+
+        .sidebar a {
+            padding: 11px 12px;
+            border-radius: 6px;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .sidebar a:hover,
+        .sidebar a:focus-visible,
+        .sidebar a[aria-current="page"] {
+            color: #ffffff;
+            background: var(--teal);
+        }
+
+        .main-content {
+            grid-area: main;
+            min-width: 0;
+            padding: 28px;
+        }
+
+        .welcome {
+            margin-bottom: 24px;
+        }
+
+        .welcome h2 {
+            margin-bottom: 5px;
+            color: var(--navy);
+        }
+
+        .welcome p {
+            margin-top: 0;
+            color: var(--muted);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            min-width: 0;
+            padding: 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .stat-card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .stat-card strong {
+            display: block;
+            margin-top: 7px;
+            color: var(--navy);
+            font-size: 1.8rem;
+        }
+
+        .panel {
+            margin-bottom: 20px;
+            padding: 22px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .panel h2 {
+            margin-top: 0;
+            color: var(--navy);
+        }
+
+        .activity-list {
+            padding-left: 20px;
+        }
+
+        .activity-list li {
+            margin-bottom: 10px;
+        }
+
+        .dashboard-footer {
+            grid-area: footer;
+            padding: 17px;
+            text-align: center;
+            color: var(--muted);
+            background: white;
+            border-top: 1px solid var(--border);
+        }
+
+        .dashboard-footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 850px) {
+            .dashboard {
+                grid-template-columns: 190px minmax(0, 1fr);
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .dashboard {
+                grid-template-columns: minmax(0, 1fr);
+                grid-template-rows: auto auto minmax(0, 1fr) auto;
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "main"
+                    "footer";
+            }
+
+            .dashboard-header {
+                padding: 18px;
+            }
+
+            .sidebar {
+                padding: 12px;
+                border-right: 0;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .sidebar h2 {
+                margin: 4px 8px 10px;
+            }
+
+            .sidebar nav {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+
+            .sidebar a {
+                padding: 8px 10px;
+            }
+
+            .main-content {
+                padding: 16px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <header class="dashboard-header">
+            <h1>Student Dashboard</h1>
+            <p>Welcome, Ayush Sharma</p>
+        </header>
+
+        <aside class="sidebar">
+            <h2>Navigation</h2>
+            <nav aria-label="Dashboard navigation">
+                <a href="#overview" aria-current="page">Overview</a>
+                <a href="#courses">Courses</a>
+                <a href="#assignments">Assignments</a>
+                <a href="#activity">Activity</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <section class="welcome" id="overview">
+                <h2>Dashboard Overview</h2>
+                <p>
+                    A sample student dashboard demonstrating a layout
+                    built with named CSS Grid areas.
+                </p>
+            </section>
+
+            <section class="stats" aria-label="Dashboard statistics">
+                <article class="stat-card">
+                    <p>Courses</p>
+                    <strong>4</strong>
+                </article>
+
+                <article class="stat-card">
+                    <p>Assignments</p>
+                    <strong>15</strong>
+                </article>
+
+                <article class="stat-card">
+                    <p>Completed</p>
+                    <strong>10</strong>
+                </article>
+            </section>
+
+            <section class="panel" id="courses">
+                <h2>My Courses</h2>
+                <p>HTML and CSS Fundamentals</p>
+                <p>Programming Basics</p>
+                <p>Computer Fundamentals</p>
+            </section>
+
+            <section class="panel" id="assignments">
+                <h2>Assignments</h2>
+                <p>Continue practising responsive layouts and CSS Grid.</p>
+                <p>Build reusable components and test them on mobile screens.</p>
+            </section>
+
+            <section class="panel" id="activity">
+                <h2>Recent Activity</h2>
+                <ul class="activity-list">
+                    <li>Created an HTML photo gallery.</li>
+                    <li>Practised responsive product cards.</li>
+                    <li>Built a dashboard using named grid areas.</li>
+                </ul>
+                <p>
+                    The counts and activities on this page are sample
+                    demonstration data.
+                </p>
+            </section>
+        </main>
+
+        <footer class="dashboard-footer">
+            <p>&copy; 2026 Student Dashboard | CSS Grid Assignment</p>
+        </footer>
+    </div>
+</body>
+</html>

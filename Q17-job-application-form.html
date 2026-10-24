@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sample job application form demonstrating HTML input types and form controls.">
+    <meta name="author" content="Ayush Sharma">
+    <title>Job Application Form</title>
+</head>
+<body>
+
+    <header>
+        <h1>Job Application Form</h1>
+        <p>Sample application for a Junior Web Developer position.</p>
+        <p>Please complete the relevant fields accurately.</p>
+    </header>
+
+    <hr>
+
+    <main>
+        <form action="#" method="post" enctype="multipart/form-data">
+
+            <input type="hidden" name="application_reference" value="WEB-2026-001">
+
+            <fieldset>
+                <legend>1. Personal Details</legend>
+
+                <p>
+                    <label for="applicant-name">Full Name:</label><br>
+                    <input type="text" id="applicant-name" name="full_name"
+                           autocomplete="name" required>
+                </p>
+
+                <p>
+                    <label for="applicant-email">Email Address:</label><br>
+                    <input type="email" id="applicant-email" name="email"
+                           autocomplete="email" required>
+                </p>
+
+                <p>
+                    <label for="applicant-phone">Phone Number:</label><br>
+                    <input type="tel" id="applicant-phone" name="phone"
+                           autocomplete="tel" required>
+                </p>
+
+                <p>
+                    <label for="account-password">Create Account Password:</label><br>
+                    <input type="password" id="account-password" name="password"
+                           minlength="8" autocomplete="new-password">
+                </p>
+
+                <p>
+                    <label for="portfolio-url">Portfolio Website:</label><br>
+                    <input type="url" id="portfolio-url" name="portfolio_url"
+                           placeholder="https://example.com">
+                </p>
+
+                <p>
+                    <label for="dob">Date of Birth:</label><br>
+                    <input type="date" id="dob" name="date_of_birth">
+                </p>
+
+                <p>
+                    <label for="interview-time">Preferred Interview Time:</label><br>
+                    <input type="time" id="interview-time" name="interview_time">
+                </p>
+
+                <p>
+                    <label for="availability-datetime">Preferred Interview Date and Time:</label><br>
+                    <input type="datetime-local" id="availability-datetime"
+                           name="interview_datetime">
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>2. Position and Employment Details</legend>
+
+                <p>
+                    <label for="job-title">Position Applied For:</label><br>
+                    <select id="job-title" name="job_title" required>
+                        <option value="">-- Choose a position --</option>
+                        <option value="junior-web-developer">Junior Web Developer</option>
+                        <option value="frontend-developer">Front-End Developer</option>
+                        <option value="software-trainee">Software Developer Trainee</option>
+                        <option value="qa-trainee">Quality Assurance Trainee</option>
+                        <option value="intern">Web Development Intern</option>
+                    </select>
+                </p>
+
+                <p>Employment Type:</p>
+
+                <input type="radio" id="full-time" name="employment_type" value="full-time" required>
+                <label for="full-time">Full-Time</label><br>
+
+                <input type="radio" id="part-time" name="employment_type" value="part-time">
+                <label for="part-time">Part-Time</label><br>
+
+                <input type="radio" id="internship" name="employment_type" value="internship">
+                <label for="internship">Internship</label>
+
+                <p>
+                    <label for="experience">Years of Experience:</label><br>
+                    <input type="number" id="experience" name="experience_years"
+                           min="0" max="50" step="1" value="0">
+                </p>
+
+                <p>
+                    <label for="salary">Expected Annual Salary (INR):</label><br>
+                    <input type="number" id="salary" name="expected_salary"
+                           min="0" step="1000" placeholder="Enter expected salary">
+                </p>
+
+                <p>
+                    <label for="available-month">Earliest Available Month:</label><br>
+                    <input type="month" id="available-month" name="available_month">
+                </p>
+
+                <p>
+                    <label for="available-week">Preferred Joining Week:</label><br>
+                    <input type="week" id="available-week" name="joining_week">
+                </p>
+
+                <p>
+                    <label for="notice-period">Notice Period (days):</label><br>
+                    <input type="number" id="notice-period" name="notice_period"
+                           min="0" max="365" value="0">
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>3. Education and Skills</legend>
+
+                <p>
+                    <label for="qualification">Highest Qualification:</label><br>
+                    <select id="qualification" name="qualification" required>
+                        <option value="">-- Select qualification --</option>
+                        <option value="higher-secondary">Higher Secondary</option>
+                        <option value="diploma">Diploma</option>
+                        <option value="bachelor">Bachelor's Degree</option>
+                        <option value="master">Master's Degree</option>
+                        <option value="other">Other</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="institution">Institution Name:</label><br>
+                    <input type="text" id="institution" name="institution"
+                           value="Invertis University">
+                </p>
+
+                <p>Select relevant skills:</p>
+
+                <input type="checkbox" id="skill-html" name="skills" value="html">
+                <label for="skill-html">HTML</label><br>
+
+                <input type="checkbox" id="skill-css" name="skills" value="css">
+                <label for="skill-css">CSS</label><br>
+
+                <input type="checkbox" id="skill-js" name="skills" value="javascript">
+                <label for="skill-js">JavaScript</label><br>
+
+                <input type="checkbox" id="skill-git" name="skills" value="git">
+                <label for="skill-git">Git and GitHub</label><br>
+
+                <input type="checkbox" id="skill-programming" name="skills" value="programming">
+                <label for="skill-programming">Programming Fundamentals</label>
+
+                <p>
+                    <label for="resume">Upload Resume:</label><br>
+                    <input type="file" id="resume" name="resume"
+                           accept=".pdf,.doc,.docx">
+                </p>
+
+                <p>
+                    <label for="certificate">Upload Supporting Certificate:</label><br>
+                    <input type="file" id="certificate" name="certificate"
+                           accept=".pdf,.jpg,.jpeg,.png">
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>4. Additional Information</legend>
+
+                <p>
+                    <label for="job-search">Search Job Category:</label><br>
+                    <input type="search" id="job-search" name="job_search"
+                           placeholder="Search technology roles">
+                </p>
+
+                <p>
+                    <label for="cover-letter">Cover Letter:</label><br>
+                    <textarea id="cover-letter" name="cover_letter"
+                              rows="6" cols="50"
+                              placeholder="Explain your interest in the position."></textarea>
+                </p>
+
+                <p>
+                    <label for="confidence">Self-Rated HTML Confidence (1–10):</label><br>
+                    <input type="range" id="confidence" name="html_confidence"
+                           min="1" max="10" value="5">
+                </p>
+
+                <p>
+                    <label for="preferred-color">Preferred Work-Space Colour:</label><br>
+                    <input type="color" id="preferred-color"
+                           name="preferred_color" value="#336699">
+                </p>
+
+                <p>
+                    <input type="checkbox" id="accuracy" name="accuracy"
+                           value="confirmed" required>
+                    <label for="accuracy">
+                        I confirm that the information supplied is accurate.
+                    </label>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>5. Application Controls</legend>
+
+                <p>
+                    <input type="submit" value="Submit Application">
+                    <input type="reset" value="Reset Form">
+                    <input type="button" value="Example Button"
+                           onclick="alert('This is a demonstration button.')">
+                </p>
+
+                <p>
+                    The demonstration button above shows the HTML button
+                    input type. JavaScript is used only for its example action.
+                </p>
+            </fieldset>
+
+        </form>
+    </main>
+
+    <hr>
+
+    <footer>
+        <p>Sample Job Application Form | Educational Demonstration</p>
+        <p>Created by Ayush Sharma</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact page and coding profile links for Ayush Sharma.">
+    <title>Contact | Ayush Sharma Portfolio</title>
+    <style>
+        :root {
+            --primary: #173b57;
+            --accent: #0d9488;
+            --background: #f3f6fa;
+            --surface: #ffffff;
+            --text: #243447;
+            --muted: #64748b;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; font-family: Arial, sans-serif;
+            line-height: 1.7; color: var(--text); background: var(--background);
+        }
+        .container { width: min(100% - 32px, 1000px); margin: auto; }
+        header { background: var(--primary); color: white; }
+        .nav {
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 16px; padding: 18px 0;
+        }
+        .brand { font-size: 1.2rem; font-weight: bold; }
+        nav { display: flex; flex-wrap: wrap; gap: 18px; }
+        nav a { color: white; text-decoration: none; }
+        nav a:hover { text-decoration: underline; }
+        main { padding: 35px 0; }
+        .panel {
+            background: var(--surface); padding: 28px;
+            border-radius: 12px; border: 1px solid #dbe3ec;
+        }
+        h1, h2 { color: var(--primary); }
+        label { display: block; font-weight: bold; margin: 14px 0 5px; }
+        input, textarea {
+            display: block; width: 100%; padding: 12px;
+            border: 1px solid #b8c5d1; border-radius: 6px;
+            font: inherit; background: white;
+        }
+        textarea { min-height: 130px; resize: vertical; }
+        button {
+            margin-top: 18px; padding: 12px 20px; border: 0;
+            border-radius: 7px; color: white; background: var(--accent);
+            font: inherit; cursor: pointer;
+        }
+        button:hover { background: #0f766e; }
+        .note { color: var(--muted); font-size: 0.9rem; }
+        footer { text-align: center; padding: 22px; color: var(--muted); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand">Ayush Sharma</div>
+            <nav aria-label="Main navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" aria-current="page">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="panel">
+            <h1>Contact Me</h1>
+            <p>
+                Use the form below to practise HTML form design.
+                This static page does not send or store submissions.
+            </p>
+
+            <form action="#" method="get">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name"
+                       autocomplete="name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email"
+                       autocomplete="email" required>
+
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+
+                <button type="submit">Submit Form</button>
+            </form>
+
+            <p class="note">
+                Demo only: connect a backend or form service to receive messages.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ayush Sharma | Student Portfolio</p>
+    </footer>
+</body>
+</html>

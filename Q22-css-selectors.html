@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A demonstration of different CSS selector types.">
+    <title>CSS Selector Demonstration</title>
+
+    <style>
+        /* 1. Element selector */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f1f5f9;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* 2. Grouping selector */
+        h1, h2, p {
+            margin-top: 0;
+        }
+
+        /* 3. Class selector */
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 25px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 22px;
+            margin-bottom: 18px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .highlight {
+            background-color: #dbeafe;
+            padding: 12px;
+            border-left: 4px solid #2563eb;
+        }
+
+        /* 4. ID selector */
+        #main-title {
+            text-align: center;
+            color: #1d4ed8;
+        }
+
+        /* 5. Descendant selector */
+        .card p {
+            color: #475569;
+        }
+
+        /* 6. Pseudo-class selector */
+        a:hover {
+            color: #dc2626;
+            text-decoration: underline;
+        }
+
+        a {
+            color: #1d4ed8;
+            text-decoration: none;
+        }
+
+        /* 7. Attribute selector */
+        input[type="email"] {
+            width: 100%;
+            max-width: 350px;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid #94a3b8;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <h1 id="main-title">CSS Selector Examples</h1>
+
+        <section class="card">
+            <h2>Element and Grouping Selectors</h2>
+            <p>
+                Element selectors target HTML tags, while grouping selectors
+                apply the same rules to multiple elements.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Class and Descendant Selectors</h2>
+            <p class="highlight">
+                This paragraph uses a class selector to highlight important text.
+            </p>
+            <p>
+                The selector <code>.card p</code> styles paragraphs inside cards.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>ID and Pseudo-class Selectors</h2>
+            <p>
+                The main heading uses an ID selector. Move your pointer over
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors"
+                   target="_blank" rel="noopener noreferrer">this CSS selector guide</a>
+                to see the hover effect.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Attribute Selector</h2>
+            <label for="email">Email address</label><br>
+            <input type="email" id="email" placeholder="student@example.com">
+        </section>
+    </main>
+</body>
+</html>

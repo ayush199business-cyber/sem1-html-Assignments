@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A responsive navigation menu using CSS Flexbox.">
+    <title>Responsive Flexbox Menu</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #1e293b;
+            background: #f1f5f9;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 18px 5%;
+            background: #173b57;
+            color: white;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav-links a {
+            display: block;
+            padding: 10px 14px;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            background: #0d9488;
+            outline-offset: 3px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 550px) {
+            .navbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .logo {
+                text-align: center;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">MyWebsite</div>
+
+        <nav aria-label="Main navigation">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content" id="home">
+            <h1>Responsive Flexbox Menu</h1>
+            <p>
+                This navigation bar uses Flexbox to align the website logo
+                and menu links. On smaller screens, the items wrap and
+                the layout changes to a vertical arrangement.
+            </p>
+
+            <h2 id="about">About</h2>
+            <p>A demonstration of responsive navigation.</p>
+
+            <h2 id="services">Services</h2>
+            <p>HTML development, CSS styling, and responsive layouts.</p>
+
+            <h2 id="contact">Contact</h2>
+            <p>Use this section to add contact information.</p>
+        </section>
+    </main>
+</body>
+</html>
