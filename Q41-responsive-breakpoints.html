@@ -1,0 +1,390 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A responsive student portfolio demonstrating CSS media queries and breakpoints.">
+    <title>Q41 - Responsive Portfolio</title>
+
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --primary-dark: #5141c4;
+            --background: #f6f7fb;
+            --surface: #ffffff;
+            --text: #1c2333;
+            --muted: #687386;
+            --border: #e4e7ef;
+            --radius: 18px;
+            --shadow: 0 12px 32px rgba(31, 41, 55, 0.07);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, calc(100% - 48px));
+            margin-inline: auto;
+        }
+
+        .site-header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 56px;
+            padding-block: 88px;
+        }
+
+        .eyebrow {
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+        }
+
+        h1 {
+            margin-block: 16px;
+            font-size: clamp(2.5rem, 5vw, 4.3rem);
+            line-height: 1.08;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            max-width: 570px;
+            color: var(--muted);
+            font-size: 1.08rem;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 28px;
+        }
+
+        .button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 13px 21px;
+            border-radius: 10px;
+            font-weight: 700;
+            border: 1px solid var(--primary);
+        }
+
+        .button-primary {
+            color: white;
+            background: var(--primary);
+        }
+
+        .button-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .button-secondary {
+            color: var(--primary);
+        }
+
+        .hero-image {
+            width: 100%;
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .section {
+            padding-block: 36px 76px;
+        }
+
+        .section-heading {
+            margin-bottom: 28px;
+        }
+
+        .section-heading h2 {
+            font-size: 2rem;
+            margin-bottom: 6px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 72px;
+        }
+
+        .stat-card,
+        .project-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 26px;
+        }
+
+        .stat-card strong {
+            display: block;
+            color: var(--primary);
+            font-size: 2rem;
+        }
+
+        .stat-card span {
+            color: var(--muted);
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background: #efedff;
+            color: var(--primary-dark);
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        footer {
+            padding: 28px 0;
+            text-align: center;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        /* Breakpoint 1: Tablets and small laptops */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr 0.75fr;
+                gap: 30px;
+                padding-block: 64px;
+            }
+
+            .projects {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+        }
+
+        /* Breakpoint 2: Mobile phones */
+        @media (max-width: 600px) {
+            .container {
+                width: calc(100% - 32px);
+            }
+
+            .navbar {
+                padding-block: 16px;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px 18px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 28px;
+                padding-block: 44px;
+            }
+
+            h1 {
+                font-size: clamp(2.25rem, 10vw, 3.1rem);
+                letter-spacing: -1px;
+            }
+
+            .hero-image {
+                max-width: 420px;
+                margin-inline: auto;
+                aspect-ratio: 16 / 10;
+            }
+
+            .stats,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                gap: 14px;
+                margin-bottom: 48px;
+            }
+
+            .section {
+                padding-bottom: 48px;
+            }
+
+            .section-heading h2 {
+                font-size: 1.7rem;
+            }
+
+            .actions .button {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar container" aria-label="Main navigation">
+            <a class="logo" href="#home">Ayush.dev</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container" id="home">
+            <div>
+                <span class="eyebrow">Student Developer</span>
+                <h1>Building digital ideas into reality.</h1>
+                <p>
+                    I am a BCAI student learning web development and creating
+                    clean, accessible, and responsive web experiences.
+                </p>
+                <div class="actions">
+                    <a class="button button-primary" href="#projects">Explore Projects</a>
+                    <a class="button button-secondary"
+                       href="https://github.com/ayush199business-cy"
+                       target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+                </div>
+            </div>
+
+            <img class="hero-image"
+                 src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85"
+                 alt="Laptop and workspace used for web development">
+        </section>
+
+        <section class="section container" id="about">
+            <div class="stats">
+                <article class="stat-card">
+                    <strong>HTML</strong>
+                    <span>Semantic page structure</span>
+                </article>
+                <article class="stat-card">
+                    <strong>CSS</strong>
+                    <span>Responsive visual design</span>
+                </article>
+                <article class="stat-card">
+                    <strong>Git</strong>
+                    <span>Version control practice</span>
+                </article>
+            </div>
+
+            <div class="section-heading" id="projects">
+                <span class="eyebrow">My Work</span>
+                <h2>Featured Projects</h2>
+                <p>Practice projects created while learning frontend development.</p>
+            </div>
+
+            <div class="projects">
+                <article class="project-card">
+                    <h3>Personal Portfolio</h3>
+                    <p>A personal website with accessible navigation and profile information.</p>
+                    <span class="tag">HTML + CSS</span>
+                </article>
+
+                <article class="project-card">
+                    <h3>Product Grid</h3>
+                    <p>A responsive collection of product cards with flexible layouts.</p>
+                    <span class="tag">CSS Grid</span>
+                </article>
+
+                <article class="project-card">
+                    <h3>Dashboard Layout</h3>
+                    <p>A dashboard interface using responsive page regions.</p>
+                    <span class="tag">Responsive UI</span>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <p>Designed and developed for HTML &amp; CSS coursework.</p>
+            <p>© 2026 Ayush Sharma</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A responsive layout audit and corrected project card page.">
+    <title>Q42 - Responsive Audit and Fix</title>
+
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --ink: #172033;
+            --muted: #64748b;
+            --background: #f4f6fb;
+            --surface: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--ink);
+            background: var(--background);
+            line-height: 1.6;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            color: var(--primary);
+            overflow-wrap: anywhere;
+        }
+
+        button,
+        input,
+        textarea {
+            font: inherit;
+        }
+
+        .container {
+            width: min(1100px, calc(100% - 40px));
+            margin-inline: auto;
+        }
+
+        .header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav {
+            min-height: 74px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding-block: 14px;
+        }
+
+        .brand {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 22px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .hero {
+            padding-block: 68px 36px;
+        }
+
+        .eyebrow {
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.8rem;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.12;
+            letter-spacing: -1px;
+            margin: 12px 0;
+        }
+
+        .hero p {
+            max-width: 680px;
+            color: var(--muted);
+        }
+
+        .audit-note {
+            margin-top: 22px;
+            padding: 16px 18px;
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            background: #e9eaff;
+            overflow-wrap: anywhere;
+        }
+
+        .section {
+            padding-block: 28px 72px;
+        }
+
+        .section h2 {
+            margin-bottom: 8px;
+            font-size: 1.9rem;
+        }
+
+        .section-intro {
+            margin-top: 0;
+            margin-bottom: 28px;
+            color: var(--muted);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            min-width: 0;
+            overflow: hidden;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+        }
+
+        .card img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 22px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            overflow-wrap: anywhere;
+        }
+
+        .card p {
+            color: var(--muted);
+            overflow-wrap: anywhere;
+        }
+
+        .card a {
+            display: inline-block;
+            margin-top: 8px;
+            font-weight: 700;
+        }
+
+        .contact {
+            padding: 26px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .contact p {
+            overflow-wrap: anywhere;
+        }
+
+        footer {
+            text-align: center;
+            padding: 26px 0;
+            background: var(--surface);
+            color: var(--muted);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Audit fix 1: tablet layout */
+        @media (max-width: 900px) {
+            .project-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .hero {
+                padding-top: 50px;
+            }
+        }
+
+        /* Audit fix 2: narrow mobile layout */
+        @media (max-width: 600px) {
+            .container {
+                width: calc(100% - 28px);
+            }
+
+            .nav {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                width: 100%;
+                gap: 10px 16px;
+            }
+
+            .project-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .hero {
+                padding-top: 36px;
+            }
+
+            .section {
+                padding-bottom: 44px;
+            }
+
+            .card-content {
+                padding: 18px;
+            }
+
+            .contact {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container" aria-label="Main navigation">
+            <a class="brand" href="#home">Responsive Lab</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#issues">Audit Notes</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container" id="home">
+            <span class="eyebrow">Module 9 · Question 42</span>
+            <h1>Audit, improve, and test responsive layouts.</h1>
+            <p>
+                This corrected page uses flexible widths, responsive images,
+                safe text wrapping, and CSS Grid to provide a consistent
+                experience on desktop, tablet, and mobile screens.
+            </p>
+
+            <div class="audit-note" id="issues">
+                <strong>Issues addressed:</strong>
+                fixed-width layouts, overflowing text, oversized images,
+                cramped navigation, and too many columns on small screens.
+            </div>
+        </section>
+
+        <section class="section container" id="projects">
+            <h2>Responsive Project Cards</h2>
+            <p class="section-intro">
+                Three columns on desktop, two on tablet, and one on mobile.
+            </p>
+
+            <div class="project-grid">
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
+                         alt="Laptop on a desk showing a web development workspace">
+                    <div class="card-content">
+                        <h3>Portfolio Website</h3>
+                        <p>A responsive portfolio layout with clear navigation and readable content.</p>
+                        <a href="https://github.com/ayush199business-cy"
+                           target="_blank" rel="noopener noreferrer">View GitHub</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
+                         alt="Analytics charts displayed on a computer screen">
+                    <div class="card-content">
+                        <h3>Analytics Dashboard</h3>
+                        <p>A clean dashboard concept using reusable cards and responsive sections.</p>
+                        <a href="#contact">Project Details</a>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80"
+                         alt="Computer and notes on a workspace">
+                    <div class="card-content">
+                        <h3>Learning Journal</h3>
+                        <p>A simple learning page with readable text and a flexible content width.</p>
+                        <a href="#contact">Project Details</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section container" id="contact">
+            <div class="contact">
+                <h2>Contact and Repository</h2>
+                <p>Student: Ayush Sharma</p>
+                <p>Course: BCAI, Invertis University</p>
+                <p>
+                    GitHub:
+                    <a href="https://github.com/ayush199business-cy"
+                       target="_blank" rel="noopener noreferrer">
+                        github.com/ayush199business-cy
+                    </a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Q42 — Responsive Design Audit and Fix</p>
+        </div>
+    </footer>
+</body>
+</html>
